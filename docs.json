@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "RM BG API Docs",
+  "name": "Image Background Remover",
   "colors": {
     "primary": "#0F766E",
     "light": "#14B8A6",
     "dark": "#115E59"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "languages": [
       {
@@ -22,8 +22,7 @@
                 "pages": [
                   "en/index",
                   "en/guides/authentication",
-                  "en/guides/background-removal",
-                  "en/guides/payments"
+                  "en/guides/background-removal"
                 ]
               }
             ]
@@ -35,6 +34,18 @@
                 "group": "API",
                 "pages": [
                   "en/reference/endpoints"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Blog",
+            "groups": [
+              {
+                "group": "SEO articles",
+                "pages": [
+                  "en/blog/index",
+                  "en/blog/remove-photo-background"
                 ]
               }
             ]
@@ -52,8 +63,7 @@
                 "pages": [
                   "ru/index",
                   "ru/guides/authentication",
-                  "ru/guides/background-removal",
-                  "ru/guides/payments"
+                  "ru/guides/background-removal"
                 ]
               }
             ]
@@ -68,14 +78,26 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Блог",
+            "groups": [
+              {
+                "group": "SEO статьи",
+                "pages": [
+                  "ru/blog/index",
+                  "ru/blog/udalit-fon-u-foto"
+                ]
+              }
+            ]
           }
         ]
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo.png",
+    "dark": "/logo.png"
   },
   "navbar": {
     "primary": {

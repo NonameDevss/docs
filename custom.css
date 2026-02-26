@@ -1,0 +1,22 @@
+/* Force a visibly larger top-left logo in Mintlify navbar */
+#navbar a[data-slot="context-menu-trigger"] {
+  margin-right: 1.5rem !important;
+}
+
+#navbar a[data-slot="context-menu-trigger"] img.nav-logo {
+  height: 40px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 1023px) {
+  #navbar a[data-slot="context-menu-trigger"] {
+    margin-right: 0.75rem !important;
+  }
+
+  #navbar a[data-slot="context-menu-trigger"] img.nav-logo {
+    height: 42px !important;
+  }
+}
