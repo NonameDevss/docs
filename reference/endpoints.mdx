@@ -1,0 +1,97 @@
+---
+title: "Endpoint map"
+description: "Authentication requirements for each endpoint group."
+---
+
+<Tabs>
+<Tab title="English">
+
+## Public endpoints
+
+| Endpoint | Auth |
+| --- | --- |
+| `POST /api/v1/auth/password` | none |
+| `POST /api/v1/auth/device` | none |
+| `POST /api/v1/auth/firebase` | none |
+| `POST /api/v1/auth/webapp` | none |
+| `GET /api/v1/docs` | none |
+| `GET /api/v1/openapi.json` | none |
+| `POST /api/v1/callbacks/ton` | none |
+| `POST /api/v1/callbacks/nowpayments` | none |
+| `GET /api/v1/payments/options` | none |
+
+## JWT token header (`token`)
+
+| Endpoint group | Auth |
+| --- | --- |
+| `/api/v1/user/*` | `token: <jwt_token>` |
+| `/api/v1/file*` | `token: <jwt_token>` |
+| `/api/v1/token*` | `token: <jwt_token>` |
+| `/api/v1/payments/link` | `token: <jwt_token>` |
+| `/api/v1/payments/invoices*` | `token: <jwt_token>` |
+| `/api/v1/statistics` | `token: <jwt_token>` |
+| `/api/v1/generations` | `token: <jwt_token>` |
+| `/api/v1/payment/deposit` | `token: <jwt_token>` |
+
+## Managed token header (`Authorization`)
+
+| Endpoint | Auth |
+| --- | --- |
+| `/api/v1/background/remove/base64` | `Authorization: <managed_token>` |
+| `/api/v1/background/remove/url` | `Authorization: <managed_token>` |
+| `/api/v1/background/remove/multipart` | `Authorization: <managed_token>` |
+
+## Service-to-service headers
+
+| Endpoint | Auth |
+| --- | --- |
+| `POST /api/v1/telegram` | `X-Telegram-Bot-Api-Secret-Token: <secret>` |
+| `POST /api/v1/task/example` | `token: <AUTH_TOKEN_TASK>` |
+
+</Tab>
+<Tab title="Русский">
+
+## Публичные эндпоинты
+
+| Endpoint | Авторизация |
+| --- | --- |
+| `POST /api/v1/auth/password` | не нужна |
+| `POST /api/v1/auth/device` | не нужна |
+| `POST /api/v1/auth/firebase` | не нужна |
+| `POST /api/v1/auth/webapp` | не нужна |
+| `GET /api/v1/docs` | не нужна |
+| `GET /api/v1/openapi.json` | не нужна |
+| `POST /api/v1/callbacks/ton` | не нужна |
+| `POST /api/v1/callbacks/nowpayments` | не нужна |
+| `GET /api/v1/payments/options` | не нужна |
+
+## JWT-токен в заголовке (`token`)
+
+| Группа эндпоинтов | Авторизация |
+| --- | --- |
+| `/api/v1/user/*` | `token: <jwt_token>` |
+| `/api/v1/file*` | `token: <jwt_token>` |
+| `/api/v1/token*` | `token: <jwt_token>` |
+| `/api/v1/payments/link` | `token: <jwt_token>` |
+| `/api/v1/payments/invoices*` | `token: <jwt_token>` |
+| `/api/v1/statistics` | `token: <jwt_token>` |
+| `/api/v1/generations` | `token: <jwt_token>` |
+| `/api/v1/payment/deposit` | `token: <jwt_token>` |
+
+## Managed-токен в заголовке (`Authorization`)
+
+| Endpoint | Авторизация |
+| --- | --- |
+| `/api/v1/background/remove/base64` | `Authorization: <managed_token>` |
+| `/api/v1/background/remove/url` | `Authorization: <managed_token>` |
+| `/api/v1/background/remove/multipart` | `Authorization: <managed_token>` |
+
+## Сервисные заголовки
+
+| Endpoint | Авторизация |
+| --- | --- |
+| `POST /api/v1/telegram` | `X-Telegram-Bot-Api-Secret-Token: <secret>` |
+| `POST /api/v1/task/example` | `token: <AUTH_TOKEN_TASK>` |
+
+</Tab>
+</Tabs>

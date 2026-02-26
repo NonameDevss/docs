@@ -1,97 +1,49 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "RM BG API"
+description: "Bilingual documentation for authentication, tokens, background removal, and payments."
 ---
 
-## Setting up
+<Tabs>
+<Tab title="English">
 
-Get your documentation site up and running in minutes.
+## What this API does
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+RM BG API lets you authenticate users, remove image backgrounds, manage tokens, and process payments.
 
-## Make it yours
+## Start here
 
-Design a docs site that looks great and empowers your users.
+1. Read [/guides/authentication](/guides/authentication).
+2. Get a JWT token from an auth endpoint.
+3. Use the JWT token in the `token` header for protected endpoints.
+4. Issue a managed token before calling `/background/remove/*` endpoints.
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+## Main sections
 
-## Create beautiful pages
+- Authentication and tokens: [/guides/authentication](/guides/authentication)
+- Background removal: [/guides/background-removal](/guides/background-removal)
+- Payments: [/guides/payments](/guides/payments)
+- Endpoint map: [/reference/endpoints](/reference/endpoints)
 
-Everything you need to create world-class documentation.
+</Tab>
+<Tab title="Русский">
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## Что делает этот API
 
-## Need inspiration?
+RM BG API позволяет авторизовать пользователей, удалять фон изображений, управлять токенами и проводить платежи.
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+## С чего начать
+
+1. Прочитайте [/guides/authentication](/guides/authentication).
+2. Получите JWT-токен через один из auth-эндпоинтов.
+3. Передавайте JWT-токен в заголовке `token` для защищенных эндпоинтов.
+4. Перед вызовом `/background/remove/*` выпустите managed-токен.
+
+## Основные разделы
+
+- Авторизация и токены: [/guides/authentication](/guides/authentication)
+- Удаление фона: [/guides/background-removal](/guides/background-removal)
+- Платежи: [/guides/payments](/guides/payments)
+- Карта эндпоинтов: [/reference/endpoints](/reference/endpoints)
+
+</Tab>
+</Tabs>
