@@ -1,0 +1,37 @@
+---
+title: "Удаление фона"
+description: "Вызывайте background-эндпоинты с managed-токеном в заголовке Authorization."
+---
+
+## Предусловие
+
+Перед вызовом background-эндпоинтов выпустите managed-токен через `POST /api/v1/token/issue`.
+
+## Поддерживаемые эндпоинты
+
+- `POST /api/v1/background/remove/url`
+- `POST /api/v1/background/remove/base64`
+- `POST /api/v1/background/remove/multipart`
+
+Для всех трех эндпоинтов требуется:
+
+- Заголовок `Authorization: <managed_token>`
+
+## Пример: удаление фона по URL
+
+```bash
+curl -X POST 'http://localhost:8000/api/v1/background/remove/url' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: <managed_token>' \
+  -d '{
+    "image_url": "https://example.com/photo.jpg"
+  }'
+```
+
+Пример ответа:
+
+```json
+{
+  "image_base64": "iVBORw0KGgoAAAANSUhEUg..."
+}
+```

@@ -1,0 +1,71 @@
+---
+title: "Authentication and token flow"
+description: "Get a token first, then use it in headers for protected endpoints."
+---
+
+## Required order
+
+Auth endpoints:
+
+- `POST /api/v1/auth/password`
+- `POST /api/v1/auth/device`
+- `POST /api/v1/auth/firebase`
+- `POST /api/v1/auth/webapp`
+
+Then use this order:
+
+1. Authenticate with one of the auth endpoints.
+2. Get `token` from the auth response.
+3. Send `token: <jwt_token>` for protected endpoints.
+4. Issue a managed token before calling background endpoints.
+
+## Step 1: authenticate and get JWT token
+
+```bash
+curl -X POST 'http://localhost:8000/api/v1/auth/password' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "email": "you@example.com",
+    "password": "your-password"
+  }'
+```
+
+Example response:
+
+```json
+{
+  "id": 1,
+  "email": "you@example.com",
+  "language_code": "en",
+  "token": "<jwt_token>"
+}
+```
+
+## Step 2: use JWT token in `token` header
+
+```bash
+curl -X GET 'http://localhost:8000/api/v1/user/me' \
+  -H 'token: <jwt_token>'
+```
+
+## Step 3: issue managed token for background endpoints
+
+```bash
+curl -X POST 'http://localhost:8000/api/v1/token/issue' \
+  -H 'token: <jwt_token>'
+```
+
+Response:
+
+```json
+{
+  "token": "<managed_token>",
+  "expires": "2027-02-26T12:00:00"
+}
+```
+
+Use this token in `Authorization` for `/background/remove/*` endpoints.
+
+<Note>
+Do not add `Bearer` prefix. Pass only the managed token value.
+</Note>

@@ -1,0 +1,22 @@
+---
+title: "RM BG API"
+description: "Документация по авторизации, токенам, удалению фона и платежам."
+---
+
+## Что делает этот API
+
+RM BG API позволяет авторизовать пользователей, удалять фон изображений, управлять токенами и проводить платежи.
+
+## С чего начать
+
+1. Прочитайте [/ru/guides/authentication](/ru/guides/authentication).
+2. Получите JWT-токен через один из auth-эндпоинтов.
+3. Передавайте JWT-токен в заголовке `token` для защищенных эндпоинтов.
+4. Перед вызовом `/background/remove/*` выпустите managed-токен.
+
+## Основные разделы
+
+- Авторизация и токены: [/ru/guides/authentication](/ru/guides/authentication)
+- Удаление фона: [/ru/guides/background-removal](/ru/guides/background-removal)
+- Платежи: [/ru/guides/payments](/ru/guides/payments)
+- Карта эндпоинтов: [/ru/reference/endpoints](/ru/reference/endpoints)

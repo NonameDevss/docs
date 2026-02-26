@@ -9,28 +9,64 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "guides/authentication",
-              "guides/background-removal",
-              "guides/payments"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Getting started",
+                "pages": [
+                  "en/index",
+                  "en/guides/authentication",
+                  "en/guides/background-removal",
+                  "en/guides/payments"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Reference",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  "en/reference/endpoints"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Reference",
-        "groups": [
+        "language": "ru",
+        "tabs": [
           {
-            "group": "API",
-            "pages": [
-              "reference/endpoints"
+            "tab": "Гайды",
+            "groups": [
+              {
+                "group": "Быстрый старт",
+                "pages": [
+                  "ru/index",
+                  "ru/guides/authentication",
+                  "ru/guides/background-removal",
+                  "ru/guides/payments"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Справочник",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  "ru/reference/endpoints"
+                ]
+              }
             ]
           }
         ]

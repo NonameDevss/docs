@@ -1,35 +1,7 @@
 ---
-title: "Payments"
-description: "Create payment links and read invoice history with JWT token."
+title: "Платежи"
+description: "Создавайте ссылки на оплату и смотрите историю инвойсов с JWT-токеном."
 ---
-
-<Tabs>
-<Tab title="English">
-
-## Subscription payment flow
-
-1. Read plans: `GET /api/v1/payments/options`.
-2. Create payment link: `POST /api/v1/payments/link`.
-3. Check invoice list: `GET /api/v1/payments/invoices`.
-4. Check invoice details: `GET /api/v1/payments/invoices/{invoice_id}`.
-
-All endpoints except `GET /payments/options` require:
-
-- Header `token: <jwt_token>`
-
-## Example: create payment link
-
-```bash
-curl -X POST 'http://localhost:8000/api/v1/payments/link' \
-  -H 'Content-Type: application/json' \
-  -H 'token: <jwt_token>' \
-  -d '{
-    "plan": "month"
-  }'
-```
-
-</Tab>
-<Tab title="Русский">
 
 ## Флоу оплаты подписки
 
@@ -52,6 +24,3 @@ curl -X POST 'http://localhost:8000/api/v1/payments/link' \
     "plan": "month"
   }'
 ```
-
-</Tab>
-</Tabs>

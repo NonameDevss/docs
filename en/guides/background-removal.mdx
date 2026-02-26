@@ -1,0 +1,37 @@
+---
+title: "Background removal"
+description: "Call background endpoints with a managed token in Authorization header."
+---
+
+## Prerequisite
+
+Before calling background endpoints, issue a managed token at `POST /api/v1/token/issue`.
+
+## Supported endpoints
+
+- `POST /api/v1/background/remove/url`
+- `POST /api/v1/background/remove/base64`
+- `POST /api/v1/background/remove/multipart`
+
+All three endpoints require:
+
+- Header `Authorization: <managed_token>`
+
+## Example: remove by URL
+
+```bash
+curl -X POST 'http://localhost:8000/api/v1/background/remove/url' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: <managed_token>' \
+  -d '{
+    "image_url": "https://example.com/photo.jpg"
+  }'
+```
+
+Example response:
+
+```json
+{
+  "image_base64": "iVBORw0KGgoAAAANSUhEUg..."
+}
+```

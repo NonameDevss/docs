@@ -1,55 +1,7 @@
 ---
-title: "Endpoint map"
-description: "Authentication requirements for each endpoint group."
+title: "Карта эндпоинтов"
+description: "Требования к авторизации для каждой группы эндпоинтов."
 ---
-
-<Tabs>
-<Tab title="English">
-
-## Public endpoints
-
-| Endpoint | Auth |
-| --- | --- |
-| `POST /api/v1/auth/password` | none |
-| `POST /api/v1/auth/device` | none |
-| `POST /api/v1/auth/firebase` | none |
-| `POST /api/v1/auth/webapp` | none |
-| `GET /api/v1/docs` | none |
-| `GET /api/v1/openapi.json` | none |
-| `POST /api/v1/callbacks/ton` | none |
-| `POST /api/v1/callbacks/nowpayments` | none |
-| `GET /api/v1/payments/options` | none |
-
-## JWT token header (`token`)
-
-| Endpoint group | Auth |
-| --- | --- |
-| `/api/v1/user/*` | `token: <jwt_token>` |
-| `/api/v1/file*` | `token: <jwt_token>` |
-| `/api/v1/token*` | `token: <jwt_token>` |
-| `/api/v1/payments/link` | `token: <jwt_token>` |
-| `/api/v1/payments/invoices*` | `token: <jwt_token>` |
-| `/api/v1/statistics` | `token: <jwt_token>` |
-| `/api/v1/generations` | `token: <jwt_token>` |
-| `/api/v1/payment/deposit` | `token: <jwt_token>` |
-
-## Managed token header (`Authorization`)
-
-| Endpoint | Auth |
-| --- | --- |
-| `/api/v1/background/remove/base64` | `Authorization: <managed_token>` |
-| `/api/v1/background/remove/url` | `Authorization: <managed_token>` |
-| `/api/v1/background/remove/multipart` | `Authorization: <managed_token>` |
-
-## Service-to-service headers
-
-| Endpoint | Auth |
-| --- | --- |
-| `POST /api/v1/telegram` | `X-Telegram-Bot-Api-Secret-Token: <secret>` |
-| `POST /api/v1/task/example` | `token: <AUTH_TOKEN_TASK>` |
-
-</Tab>
-<Tab title="Русский">
 
 ## Публичные эндпоинты
 
@@ -92,6 +44,3 @@ description: "Authentication requirements for each endpoint group."
 | --- | --- |
 | `POST /api/v1/telegram` | `X-Telegram-Bot-Api-Secret-Token: <secret>` |
 | `POST /api/v1/task/example` | `token: <AUTH_TOKEN_TASK>` |
-
-</Tab>
-</Tabs>
