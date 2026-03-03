@@ -93,7 +93,7 @@
       }
     ]
   },
-  "logo": "/logo.png",
+  "logo": "/logo.svg",
   "navbar": {
     "primary": {
       "type": "button",
