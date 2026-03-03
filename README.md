@@ -38,7 +38,7 @@ Run the following command at the root of your documentation, where your `docs.js
 mint dev
 ```
 
-View your local preview at `https://api.cutbg.net`.
+View the documentation site at `https://docs.cutbg.net`.
 
 ## Publishing changes
 

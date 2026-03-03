@@ -1,0 +1,32 @@
+# CutBG API docs for LLMs
+
+Project: Image Background Remover
+Docs site: https://docs.cutbg.net
+API base URL: https://api.cutbg.net/api/v1
+Token dashboard: https://dashboard.cutbg.net/dashboard/tokens
+
+Authentication:
+- Create a user token in dashboard Tokens.
+- Copy Token ID and use it in header: token: <user_token>
+- Background endpoints require managed token in header: Authorization: <managed_token>
+
+Background removal endpoints:
+- POST /api/v1/background/remove/url
+  Request JSON: {"image_url":"https://example.com/image.jpg"}
+  Response JSON: {"image_base64":"<base64_image>"}
+
+- POST /api/v1/background/remove/base64
+  Request JSON: {"image_base64":"<base64_image>"}
+  Response JSON: {"image_base64":"<base64_image_without_background>"}
+
+- POST /api/v1/background/remove/multipart
+  Request multipart/form-data: file=<binary>
+  Response JSON: {"image_base64":"<base64_image_without_background>"}
+
+Docs pages:
+- EN auth: https://docs.cutbg.net/en/guides/authentication
+- EN background removal: https://docs.cutbg.net/en/guides/background-removal
+- EN endpoint map: https://docs.cutbg.net/en/reference/endpoints
+- RU auth: https://docs.cutbg.net/ru/guides/authentication
+- RU background removal: https://docs.cutbg.net/ru/guides/background-removal
+- RU endpoint map: https://docs.cutbg.net/ru/reference/endpoints

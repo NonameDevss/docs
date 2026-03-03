@@ -100,8 +100,8 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "API base URL",
-      "href": "https://api.cutbg.net/api/v1"
+      "label": "LLMs.txt",
+      "href": "/llms.txt"
     }
   },
   "contextual": {
