@@ -4,7 +4,7 @@
 }
 
 #navbar a[data-slot="context-menu-trigger"] img.nav-logo {
-  height: 40px !important;
+  height: 56px !important;
   width: auto !important;
   max-height: none !important;
   max-width: none !important;
@@ -17,6 +17,6 @@
   }
 
   #navbar a[data-slot="context-menu-trigger"] img.nav-logo {
-    height: 42px !important;
+    height: 50px !important;
   }
 }
