@@ -20,7 +20,6 @@
               {
                 "group": "Getting started",
                 "pages": [
-                  "en/index",
                   "en/guides/authentication",
                   "en/guides/background-removal"
                 ]
@@ -61,7 +60,6 @@
               {
                 "group": "Быстрый старт",
                 "pages": [
-                  "ru/index",
                   "ru/guides/authentication",
                   "ru/guides/background-removal"
                 ]

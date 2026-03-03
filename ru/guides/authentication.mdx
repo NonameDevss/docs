@@ -1,71 +1,18 @@
 ---
 title: "Авторизация и поток токенов"
-description: "Сначала получите токен, затем передавайте его в заголовках защищенных запросов."
+description: "Создайте и скопируйте пользовательский токен в кабинете."
 ---
 
-## Обязательный порядок
+## Получите пользовательский токен
 
-Auth-эндпоинты:
+1. Откройте раздел **Tokens** и нажмите **Create new token**.
 
-- `POST /api/v1/auth/password`
-- `POST /api/v1/auth/device`
-- `POST /api/v1/auth/firebase`
-- `POST /api/v1/auth/webapp`
+![Создание токена в разделе Tokens](/1.png)
 
-Дальше используйте такой порядок:
+2. Скопируйте значение в колонке `Token ID`. Это и есть пользовательский токен для запросов в API.
 
-1. Пройдите авторизацию через один из auth-эндпоинтов.
-2. Получите `token` из ответа auth.
-3. Передавайте `token: <jwt_token>` для защищенных эндпоинтов.
-4. Перед background-эндпоинтами выпустите managed-токен.
+![Копирование Token ID после создания токена](/2.png)
 
-## Шаг 1: авторизация и получение JWT-токена
-
-```bash
-curl -X POST 'http://localhost:8000/api/v1/auth/password' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "email": "you@example.com",
-    "password": "your-password"
-  }'
-```
-
-Пример ответа:
-
-```json
-{
-  "id": 1,
-  "email": "you@example.com",
-  "language_code": "en",
-  "token": "<jwt_token>"
-}
-```
-
-## Шаг 2: используйте JWT-токен в заголовке `token`
-
-```bash
-curl -X GET 'http://localhost:8000/api/v1/user/me' \
-  -H 'token: <jwt_token>'
-```
-
-## Шаг 3: выпустите managed-токен для background-эндпоинтов
-
-```bash
-curl -X POST 'http://localhost:8000/api/v1/token/issue' \
-  -H 'token: <jwt_token>'
-```
-
-Ответ:
-
-```json
-{
-  "token": "<managed_token>",
-  "expires": "2027-02-26T12:00:00"
-}
-```
-
-Используйте этот токен в `Authorization` для `/background/remove/*`.
-
-<Note>
-Префикс `Bearer` не нужен. Передавайте только значение managed-токена.
-</Note>
+<Tip>
+Передавайте этот токен в заголовке `token` для API-запросов, где нужна авторизация.
+</Tip>
