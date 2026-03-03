@@ -93,10 +93,7 @@
       }
     ]
   },
-  "logo": {
-    "light": "/logo.png",
-    "dark": "/logo.png"
-  },
+  "logo": "/logo.png",
   "navbar": {
     "primary": {
       "type": "button",
