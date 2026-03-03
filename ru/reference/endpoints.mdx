@@ -10,3 +10,101 @@ description: "Требования к авторизации для каждой
 | `/api/v1/background/remove/base64` | `Authorization: <managed_token>` |
 | `/api/v1/background/remove/url` | `Authorization: <managed_token>` |
 | `/api/v1/background/remove/multipart` | `Authorization: <managed_token>` |
+
+## Схемы запроса и ответа
+
+<Tabs>
+  <Tab title="POST /api/v1/background/remove/url">
+    **Схема запроса** (`application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_url"],
+      "properties": {
+        "image_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+    ```
+
+    **Схема ответа** (`200 application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Изображение в формате Base64"
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="POST /api/v1/background/remove/base64">
+    **Схема запроса** (`application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Исходное изображение в формате Base64"
+        }
+      }
+    }
+    ```
+
+    **Схема ответа** (`200 application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Результат в формате Base64"
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="POST /api/v1/background/remove/multipart">
+    **Схема запроса** (`multipart/form-data`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["file"],
+      "properties": {
+        "file": {
+          "type": "string",
+          "format": "binary"
+        }
+      }
+    }
+    ```
+
+    **Схема ответа** (`200 application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Результат в формате Base64"
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>

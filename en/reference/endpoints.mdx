@@ -10,3 +10,101 @@ description: "Authentication requirements for each endpoint group."
 | `/api/v1/background/remove/base64` | `Authorization: <managed_token>` |
 | `/api/v1/background/remove/url` | `Authorization: <managed_token>` |
 | `/api/v1/background/remove/multipart` | `Authorization: <managed_token>` |
+
+## Request and response schemas
+
+<Tabs>
+  <Tab title="POST /api/v1/background/remove/url">
+    **Request schema** (`application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_url"],
+      "properties": {
+        "image_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+    ```
+
+    **Response schema** (`200 application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Image encoded as Base64 string"
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="POST /api/v1/background/remove/base64">
+    **Request schema** (`application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Source image encoded as Base64 string"
+        }
+      }
+    }
+    ```
+
+    **Response schema** (`200 application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Result image encoded as Base64 string"
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="POST /api/v1/background/remove/multipart">
+    **Request schema** (`multipart/form-data`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["file"],
+      "properties": {
+        "file": {
+          "type": "string",
+          "format": "binary"
+        }
+      }
+    }
+    ```
+
+    **Response schema** (`200 application/json`)
+
+    ```json
+    {
+      "type": "object",
+      "required": ["image_base64"],
+      "properties": {
+        "image_base64": {
+          "type": "string",
+          "description": "Result image encoded as Base64 string"
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>

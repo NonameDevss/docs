@@ -101,7 +101,7 @@
     "primary": {
       "type": "button",
       "label": "API base URL",
-      "href": "http://localhost:8000/api/v1"
+      "href": "https://api.cutbg.net/api/v1"
     }
   },
   "contextual": {

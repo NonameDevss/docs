@@ -20,7 +20,7 @@ description: "Вызывайте background-эндпоинты с managed-ток
 ## Пример: удаление фона по URL
 
 ```bash
-curl -X POST 'http://localhost:8000/api/v1/background/remove/url' \
+curl -X POST 'https://api.cutbg.net/api/v1/background/remove/url' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: <managed_token>' \
   -d '{
@@ -35,3 +35,117 @@ curl -X POST 'http://localhost:8000/api/v1/background/remove/url' \
   "image_base64": "iVBORw0KGgoAAAANSUhEUg..."
 }
 ```
+
+## Декодирование `image_base64` в памяти
+
+Возьмите `image_base64` из ответа API и декодируйте его в объект изображения в памяти.
+
+<Tabs>
+  <Tab title="Python">
+    ```python
+    import base64
+    from io import BytesIO
+    from PIL import Image
+
+    image_base64 = response_json["image_base64"]
+    image_bytes = base64.b64decode(image_base64)
+    image = Image.open(BytesIO(image_bytes))  # PIL image in memory
+    ```
+  </Tab>
+  <Tab title="JavaScript (Node.js)">
+    ```javascript
+    const imageBase64 = responseJson.image_base64;
+    const imageBuffer = Buffer.from(imageBase64, "base64"); // bytes in memory
+    ```
+  </Tab>
+  <Tab title="TypeScript (Node.js)">
+    ```typescript
+    const imageBase64: string = responseJson.image_base64;
+    const imageBuffer: Buffer = Buffer.from(imageBase64, "base64"); // bytes in memory
+    ```
+  </Tab>
+  <Tab title="Java">
+    ```java
+    import java.util.Base64;
+    import java.io.ByteArrayInputStream;
+    import java.awt.image.BufferedImage;
+    import javax.imageio.ImageIO;
+
+    String imageBase64 = responseJson.get("image_base64").asText();
+    byte[] imageBytes = Base64.getDecoder().decode(imageBase64);
+    BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageBytes)); // in memory
+    ```
+  </Tab>
+  <Tab title="C#">
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Drawing;
+
+    string imageBase64 = responseJson["image_base64"]!.ToString();
+    byte[] imageBytes = Convert.FromBase64String(imageBase64);
+    using var stream = new MemoryStream(imageBytes);
+    using var image = Image.FromStream(stream); // in-memory image
+    ```
+  </Tab>
+  <Tab title="Go">
+    ```go
+    import (
+      "bytes"
+      "encoding/base64"
+      "image"
+    )
+
+    imageBase64 := responseJSON.ImageBase64
+    imageBytes, err := base64.StdEncoding.DecodeString(imageBase64)
+    if err != nil {
+      panic(err)
+    }
+    img, _, err := image.Decode(bytes.NewReader(imageBytes)) // in-memory image.Image
+    if err != nil {
+      panic(err)
+    }
+    _ = img
+    ```
+  </Tab>
+  <Tab title="PHP">
+    ```php
+    <?php
+    $imageBase64 = $responseJson["image_base64"];
+    $imageBytes = base64_decode($imageBase64, true);
+    $image = imagecreatefromstring($imageBytes); // GD image resource/object in memory
+    ```
+  </Tab>
+  <Tab title="Ruby">
+    ```ruby
+    require "base64"
+    require "stringio"
+    require "mini_magick"
+
+    image_base64 = response_json["image_base64"]
+    image_bytes = Base64.decode64(image_base64)
+    image = MiniMagick::Image.read(StringIO.new(image_bytes)) # in-memory image
+    ```
+  </Tab>
+  <Tab title="Kotlin (JVM)">
+    ```kotlin
+    import java.util.Base64
+    import java.io.ByteArrayInputStream
+    import java.awt.image.BufferedImage
+    import javax.imageio.ImageIO
+
+    val imageBase64 = responseJson["image_base64"] as String
+    val imageBytes = Base64.getDecoder().decode(imageBase64)
+    val image: BufferedImage = ImageIO.read(ByteArrayInputStream(imageBytes)) // in memory
+    ```
+  </Tab>
+  <Tab title="Swift (iOS)">
+    ```swift
+    import UIKit
+
+    let imageBase64 = responseJson["image_base64"] as! String
+    let imageData = Data(base64Encoded: imageBase64)!
+    let image = UIImage(data: imageData)! // in-memory UIImage
+    ```
+  </Tab>
+</Tabs>
